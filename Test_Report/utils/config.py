@@ -5,11 +5,9 @@ import os
 # Load the environment variables from the .env file
 load_dotenv()
 
-<<<<<<< HEAD
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-=======
+
 OPENAI_API_KEY = os.getenv("NeuroOcean_Healthcare")
->>>>>>> 4ec354338a44539358354c9a232242e56c3e8834
 
 Test_Report_system_prompt = f"""
 You are an AI assistant designed to analyze, extract, and organize medical test report data from files such as PDF, TXT, JSON, Excel, or CSV. Your primary goal is to structure all medically relevant information, including test values, dietary recommendations, preventive measures, and background details, while ensuring that each medical parameter is classified as "normal" or "abnormal" based on reference ranges.
