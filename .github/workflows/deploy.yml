@@ -14,17 +14,17 @@ jobs:
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.5.3
         with:
-          ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+          ssh-private-key: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
       # Step 3: Sync code to EC2
       - name: Sync code to EC2
         run: |
-          rsync -avz --exclude '.git' -e "ssh -o StrictHostKeyChecking=no" ./ ubuntu@13.55.85.184:/home/ubuntu/supplement_ai
+          rsync -avz --exclude '.git' -e "ssh -o StrictHostKeyChecking=no" ./ ubuntu@13.55.85.184:/home/ubuntu/NeuroOceans_Supplement_Project
       # Step 4: Restart Services on EC2
       - name: Restart Gunicorn and Nginx
         run: |
           ssh -o StrictHostKeyChecking=no ubuntu@13.55.85.184 '
             cd /home/ubuntu/supplement_ai &&	
-            source /home/ubuntu/supplement_ai/env/bin/activate &&
+            source /home/ubuntu/NeuroOceans_Supplement_Project/env/bin/activate &&
             pip install -r requirements.txt &&
             sudo systemctl restart gunicorn &&
             sudo systemctl restart nginx
