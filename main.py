@@ -12,7 +12,7 @@ from typing import List, Optional
 from Chatbot.src.redis_chat_history import get_user_chat_history, clear_chat_history, save_user_data
 from Chatbot.src.chat_handler import run_chat_chain
 from dotenv import load_dotenv
-###
+
 # Load the environment variables from the .env file
 load_dotenv()
 pubmed_api_key = os.getenv("pubmed_api_key")
